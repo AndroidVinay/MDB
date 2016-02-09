@@ -1,0 +1,100 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="4dp"
+    android:orientation="vertical"
+    tools:context="example.com.udacitymovie.MainActivity">
+
+    <LinearLayout
+        android:id="@+id/fragment"
+        android:name="example.com.udacitymovie.MainFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical"
+        tools:layout="@layout/fragment_main">
+
+        <ImageView
+            android:id="@+id/iv_movie"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:elevation="4dp"
+            android:scaleType="centerCrop"
+            android:src="@color/colorPrimary">
+
+        </ImageView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/movie_item_footer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/theme_primary"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/keyline_1"
+            android:layout_marginLeft="@dimen/keyline_1"
+            android:layout_marginStart="@dimen/keyline_1"
+            android:layout_marginTop="@dimen/keyline_1"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/movie_item_title"
+                style="@style/MovieItemText"
+                android:lines="1"
+                android:visibility="visible"
+                android:textColor="@color/body_text_white"
+                android:textSize="@dimen/text_size_large"
+                android:textStyle="bold"
+                tools:text="Mumbai top corporate" />
+
+            <TextView
+                android:id="@+id/movie_item_vote"
+                style="@style/MovieItemText"
+                android:visibility="visible"
+                android:textColor="@color/body_text_1_inverse"
+                android:textSize="@dimen/text_size_medium"
+                tools:text="(126,900)" />
+            <!--<TextView-->
+                <!--android:id="@+id/movie_rupees"-->
+                <!--style="@style/MovieItemText"-->
+                <!--android:lines="1"-->
+                <!--android:textColor="@color/body_text_white"-->
+                <!--android:textSize="@dimen/text_size_large"-->
+                <!--android:textStyle="bold"-->
+                <!--tools:text="25,000" />-->
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/movie_item_btn_details"
+            style="@style/FavoriteButton"
+            android:layout_width="wrap_content"
+            android:text="Details"
+            android:textColor="@color/body_text_white"
+            android:textSize="@dimen/text_size_large"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+</LinearLayout>
+
+
+
+<!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--<ImageView xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--android:id="@+id/iv_movie"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="200dp"-->
+    <!--android:layout_margin="4dp"-->
+    <!--android:elevation="4dp"-->
+    <!--android:scaleType="centerCrop"-->
+    <!--android:src="@drawable/a">-->
+
+<!--</ImageView>-->
