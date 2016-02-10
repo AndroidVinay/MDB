@@ -35,7 +35,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            android:orientation="vertical"
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
             android:weightSum="2">
@@ -57,7 +57,8 @@
                 android:layout_gravity="top"
                 android:layout_weight="1"
                 android:paddingLeft="8dp"
-                android:src="@drawable/a" />
+                android:src="@drawable/a"
+                android:transitionName="@string/transition_thumbnail" />
             <!--</LinearLayout>-->
 
             <LinearLayout
@@ -109,9 +110,9 @@
                     android:layout_height="wrap_content"
                     android:background="@color/colorButton"
                     android:text="mark as\nfavorite"
-                    android:textOn="Dislike"
+                    android:textColor="@color/colorText"
                     android:textOff="Like"
-                    android:textColor="@color/colorText" />
+                    android:textOn="Dislike" />
             </LinearLayout>
 
 

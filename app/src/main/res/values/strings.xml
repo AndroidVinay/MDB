@@ -6,5 +6,6 @@
     <string name="title_activity_detail">DetailActivity</string>
     <string name="action_settings">Settings</string>
     <string name="content_authority">example.com.udacitymovie</string>
+    <string name="transition_thumbnail">transit_movie_image</string>
 
 </resources>

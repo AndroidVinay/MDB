@@ -1,10 +1,14 @@
 package example.com.udacitymovie.adapter;
 
+import android.app.Activity;
+import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Bitmap;
 import android.graphics.PorterDuff;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Parcelable;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -28,7 +32,10 @@ import com.bumptech.glide.request.target.Target;
 import com.github.florent37.glidepalette.BitmapPalette;
 import com.github.florent37.glidepalette.GlidePalette;
 
+import java.util.concurrent.ExecutionException;
+
 import example.com.udacitymovie.DetailActivity;
+import example.com.udacitymovie.MainActivity;
 import example.com.udacitymovie.R;
 import example.com.udacitymovie.data.MovieContract;
 
@@ -87,9 +94,9 @@ public class RecycleVieMovieAdapter extends CursorRecyclerViewAdapter {
 
     @Override
     public void onBindViewHolder(final MovieHolder viewHolder, Cursor cursor) {
+
         Log.d(TAG, " on Bind View Holder" + cursor.getString(cursor.getColumnIndex(MovieContract.Favourite.COLUMN_BACKDROP_PATH)));
         final View v = viewHolder.movieItemFooter;
-
         String url = cursor.getString(cursor.getColumnIndex(MovieContract.Favourite.COLUMN_BACKDROP_PATH));
         this.cursor = cursor;
         viewHolder.serverId = getCursor().getString(getCursor().getColumnIndex(MovieContract.Favourite.COLUMN_SERVER_ID));
@@ -143,8 +150,10 @@ public class RecycleVieMovieAdapter extends CursorRecyclerViewAdapter {
         TextView movieItemTitle, movieItemVote;
         String serverId;
         String movieTitle, movieVote;
+        Bitmap imageBitmap;
         View movieItemFooter;
         Button movieItemButtonDetails;
+
 
         public MovieHolder(View itemView) {
             super(itemView);
@@ -173,9 +182,19 @@ public class RecycleVieMovieAdapter extends CursorRecyclerViewAdapter {
                 public void onClick(View v) {
                     Toast.makeText(context, "" + serverId, Toast.LENGTH_SHORT).show();
                     Uri uri = MovieContract.Favourite.BuildFavouriteUri(Long.parseLong(serverId));
-                    Intent i = new Intent(context, DetailActivity.class);
-                    i.putExtra("selectedUri", uri);
-                    context.startActivity(i);
+//                    Intent i = new Intent(context, DetailActivity.class);
+//                    context.startActivity(i);
+
+                    Intent in = new Intent(context, DetailActivity.class);
+//                    in.putExtra(Intent.EXTRA_TEXT, item);
+                    in.putExtra("selectedUri", uri);
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                        String transition = context.getString(R.string.transition_thumbnail);
+                        ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation((Activity) context, imageView, transition);
+                        context.startActivity(in, options.toBundle());
+                    } else {
+                        context.startActivity(in);
+                    }
 
                 }
             });

@@ -1,6 +1,7 @@
 package example.com.udacitymovie;
 
 import android.database.Cursor;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -19,6 +20,7 @@ public class DetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_detail);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         Uri uri = getIntent().getExtras().getParcelable("selectedUri");
+//        Bitmap bitmap = (Bitmap) getIntent().getParcelableExtra("image");
 //        int deleteRow = 0;
         Fragment fragment = DetailFragment.newInstance(uri);
         FragmentManager fragmentManager = getSupportFragmentManager();

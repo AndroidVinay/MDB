@@ -94,9 +94,11 @@ public class DetailFragment extends Fragment implements LoaderManager.LoaderCall
         Log.d(TAG, "count of COLUMN_RELEASE_DATE " + cur.getString(cur.getColumnIndex(MovieContract.Favourite.COLUMN_RELEASE_DATE)));
 
         Glide.with(getContext())
-                .load(url + cur.getString(cur.getColumnIndex(MovieContract.Favourite.COLUMN_POSTER_PATH))).asBitmap()
+                .load(url + cur.getString(cur.getColumnIndex(MovieContract.Favourite.COLUMN_BACKDROP_PATH))).asBitmap()
                 .into(iv_poster_image);
-        Log.d(TAG, "count of COLUMN_POSTER_PATH " + cur.getString(cur.getColumnIndex(MovieContract.Favourite.COLUMN_POSTER_PATH)));
+//        Bitmap bitmapImage = getArguments().getParcelable("image");
+//        iv_poster_image.setImageBitmap(bitmapImage);
+        Log.d(TAG, "count of COLUMN_POSTER_PATH " + cur.getString(cur.getColumnIndex(MovieContract.Favourite.COLUMN_BACKDROP_PATH)));
 
         Cursor c = getActivity().getContentResolver().query(uri,
                 new String[]{MovieContract.Favourite.COLUMN_SERVER_ID},
